@@ -6,7 +6,7 @@ The System is evaluated on 2 metrics,
 1.the proportion of claims that have been labelled correct(accuracy), and  
 2.the correctness of a complete set of relevant evidence sentences that have been identified to support the label.  
 
-Our system performs better than the baseline system \cite{Thorne18Fever} for FEVER challenge which achieves a score of 33% in labelling the verdict as we address major drawbacks of the baseline system, viz. using entity matching along with inverted index for information retrieval, pair wise entailment of a claim and each of the sentences retrieved by the IR system, and
+Our system performs better than the baseline system for FEVER challenge which achieves a score of 33% in labelling the verdict as we address major drawbacks of the baseline system, viz. using entity matching along with inverted index for information retrieval, pair wise entailment of a claim and each of the sentences retrieved by the IR system, and
 employing universal sentence encoder for encoding the claim and evidence to identify at most top-scoring 5 evidences.
 
 
