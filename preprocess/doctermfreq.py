@@ -69,3 +69,4 @@ def create_doc_term_freq(filepath):
     print(doc_term_freqs[0])
     print(doc_term_freqs[-109])
     #-------------------------------------------------------------------------------------------------
+    return doc_term_freqs,vocab
