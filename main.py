@@ -1,4 +1,4 @@
-import preprocess
+import preproc
 import misc
 doc_term_freq,vocab=create_doc_term_freq(filepath)
 invindex = InvertedIndex(vocab, doc_term_freqs)
