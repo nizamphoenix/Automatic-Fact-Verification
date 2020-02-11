@@ -187,5 +187,54 @@ def find_possible_sentences(query, k):
 
 
 
+def get_evidence_docid(evidence):
+    evidence_id = unicodedata.normalize('NFD',re.sub('_',' ', re.sub('-(\w)+-','', evidence[0])).lower())
+    evidence_sent_num = str(evidence[1])
+    for sent_num, docid in proccessed_ids[evidence_id]:
+        if evidence_sent_num == sent_num:
+            return docid
+            break
 
+# Generating 
+def get_evidence_output(docid, query):
+    
+    norm_id = unicodedata.normalize('NFD',re.sub('_',' ', re.sub('-LRB-(\w)+-RRB-','', identifier[docid][0])))
+    sent = clean_sent(all_wiki_sentences[docid])
+    for word in pronouns_one:
+        if word in sent:
+            sent = re.sub(word, ' '+ norm_id + ' ', sent)
+    for word in pronouns_two:
+        if word in sent:
+            sent = re.sub(word, ' ' + norm_id + '\'s ', sent)    
+    sent = re.sub('.\n','',sent)
+    #print(sent)
+    
+    sent_embedding = session.run(embedded_text, feed_dict={text_input: [sent]})
+    query_embedding = session.run(embedded_text, feed_dict={text_input: [query]})
+    sim = list(cosine_similarity(sent_embedding, query_embedding).flatten())
+    score = get_label_scores(query, sent)
+    #print(score)
+    return (sim[0], score[0], score[1], score[2])
+
+def get_training_data_for_sample(sample):
+    LIMIT = 4
+    if sample['label'] == 'NOT ENOUGH INFO':
+        output = label_and_evidenve(sample['claim'] , LIMIT)
+    else:
+        docids = [get_evidence_docid(evidence) for evidence in sample['evidence'][:LIMIT]]
+        if len(docids) == 4:
+            output = [*map(lambda docid:(get_evidence_output(docid, sample['claim'])), docids)]
+        else:
+            output_a = [*map(lambda docid:(get_evidence_output(docid, sample['claim'])), docids)]
+            if len(docids) == 1:
+                output_b = [*map(lambda k:(get_evidence_output(docids[0] + k, sample['claim'])), list(range(1,4)))]
+                output = output_a + output_b 
+            if len(docids) == 2:
+                output_b = [*map(lambda docid:(get_evidence_output(docid + 1, sample['claim'])), docids)]
+                output = output_a + output_b 
+            if len(docids) == 3:
+                output_b = [get_evidence_output(docids[0] + 1, sample['claim'])]
+                output = output_a + output_b
+                
+    return output  
 
