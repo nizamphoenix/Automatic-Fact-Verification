@@ -1,5 +1,5 @@
 import preproc
-import misc
+import utils
 doc_term_freq,vocab=create_doc_term_freq(filepath)
 invindex = InvertedIndex(vocab, doc_term_freqs)
 save_object(invindex, 'invindex_final.pkl')
