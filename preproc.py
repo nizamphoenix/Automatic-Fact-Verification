@@ -1,15 +1,21 @@
 import time
+import os
+
+
 def create_doc_term_freq(filepath):
     '''
     Function to create document term frequency from a corpus
     '''
     filenames = []
-    for i in range(1,10):
-        filenames.append('wiki-pages-text/wiki-00'+ str(i) + '.txt')
-    for i in range(10,100):
-        filenames.append('wiki-pages-text/wiki-0'+ str(i)+'.txt')
-    for i in range(100,110):
-        filenames.append('wiki-pages-text/wiki-'+ str(i)+'.txt')
+    for file in sorted(os.listdir(filepath)):
+        filenames.append(file)
+    
+#     for i in range(1,10):
+#         filenames.append('wiki-pages-text/wiki-00'+ str(i) + '.txt')
+#     for i in range(10,100):
+#         filenames.append('wiki-pages-text/wiki-0'+ str(i)+'.txt')
+#     for i in range(100,110):
+#         filenames.append('wiki-pages-text/wiki-'+ str(i)+'.txt')
     file_as_list = []#contains a file read from wiki-pages-text
     #wiki_sentences = []
     all_wiki_sentences = []
