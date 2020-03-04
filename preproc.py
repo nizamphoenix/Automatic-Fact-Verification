@@ -1,7 +1,25 @@
 import time
 import os
 
-
+wiki_dict={}#global dictionary
+filenames=sorted(os.listdir('./data/wiki/wiki-pages-text/'))
+for filename in tqdm(filenames):#looping 109 files
+    with open('./data/wiki/wiki-pages-text/'+filename) as wikifile:#opening 1 file at a time
+        for sent in wikifile.readlines():
+            sent = sent.rstrip()
+            sent = sent.replace('-LRB-',"(")
+            sent = sent.replace('-RRB-',")")
+            page_id,sent_num,sent = sent.split(" ",2)
+            temp = []
+            try:#first check if the key already exists
+                temp = wiki_dict[page_id]
+            except KeyError:#if the key doesn't exist and it is required to create a new one 
+                pass
+            finally:
+                temp.append((sent_num,sent))
+                wiki_dict[page_id] = temp                
+                
+                
 def create_doc_term_freq(filepath):
     '''
     Function to create document term frequency from a corpus
