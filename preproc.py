@@ -72,9 +72,6 @@ def create_doc_term_freq(filepath):
         norm_sent = preprocessed_sentence(sent)
         for token in norm_sent:
             total_tokens += 1
-            #if token not in vocab:
-                #vocab[token] = total_lemmas
-                #total_lemmas += 1
         processed_sents.append(norm_sent)  
     et = time.time()   
     print("Time for processing wiki-corpus:",(et-st)/(3600.0),"hrs.")
