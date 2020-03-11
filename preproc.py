@@ -61,7 +61,13 @@ def extract_term_freqs(preprocessed_sent):
         tfs[token] += 1
     return tfs
 
-def bm_25(query, index, k):      
+def bm_25(query, index, k):
+    '''
+    :param query: claim
+    :param index: inverted index
+    :param k: maximun number of sentences returned
+    :return: list of bm25 scores between claim and each returned sentence for the claim
+    '''
     N = invindex.num_docs()
     Lavg = sum(invindex.doc_len)/N
     scores_bm25 = Counter()
