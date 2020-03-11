@@ -45,10 +45,12 @@ def normalize_token(token):
 
 def get_normalized_sentence(sent):
     '''
-      1.all tokens lowercased
-      2.NFD normalization applied
-      3.lemmatized
-      4.stop words and punctuations excluded
+    :param sent: a sentence
+    :return: normalized sentence after applying the following,
+              1.all tokens lowercased
+              2.NFD normalization applied
+              3.lemmatized
+              4.stop words and punctuations excluded
     '''
     norm_sent = []#contains normalized tokens of a single sentence(treated as a document)      
     tokens = {*map(lambda token:normalize_token(token),nltk.word_tokenize(sent.lower()))}
