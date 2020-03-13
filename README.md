@@ -10,7 +10,7 @@ Our system performs better than the baseline system for FEVER challenge which ac
 employing universal sentence encoder for encoding the claim and evidence to identify at most top-scoring 5 evidences.
 
 
-## Citation
+### Citation
 ```
 @inproceedings{Thorne18Fever,  
     author = {Thorne, James and Vlachos, Andreas and Christodoulopoulos, Christos and Mittal, Arpit},  
