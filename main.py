@@ -20,9 +20,9 @@ pool.close()
 processed_sents = []
 processed_sents.extend(processed_sents1)
 processed_sents.extend(processed_sents2)
-len(processed_sents) == len(processed_sents1)+len(processed_sents2)
-
-doc_term_freq,vocab=create_doc_term_freq(filepath)
+assert(len(processed_sents) == len(processed_sents1)+len(processed_sents2))
+#filepath = 
+doc_term_freq, vocab = create_doc_term_freq(filepath)
 
 # doc_term_freqs stores the counters (mapping terms to term frequencies) of all documents
 doc_term_freqs = []
