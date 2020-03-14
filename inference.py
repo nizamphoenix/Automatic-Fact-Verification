@@ -39,13 +39,11 @@ def clean_sent(sent):
     return re.sub('\'', '', re.sub( " -RRB-",')', re.sub("-LRB- ",'(',re.sub(" $" , '', re.sub('.\n','', sent)))))
 
 scores_list = []
-def label_and_evidenve(query, k):
 
+def label_and_evidenve(query, k):
     result = find_possible_sentences(query, 5)
-    
     messages = []
     ids = []
-    
     
     for docid,pair in result:
         norm_id = unicodedata.normalize('NFD',re.sub('_',' ', re.sub('-LRB-(\w)+-RRB-','', pair[0])))
@@ -95,8 +93,9 @@ with open('test-unlabelled.json') as f:
     
     
     
-  # Reference: https://github.com/uclmr/fever/blob/master/jack_reader.py
 def aggregate_preds(predictions, top_one_sent=False):
+      # Reference: https://github.com/uclmr/fever/blob/master/jack_reader.py
+
     """return the most popular label
     """
     vote = dict()
@@ -139,8 +138,8 @@ def aggregate_preds(predictions, top_one_sent=False):
                 evidences.append(evidence)
             except:
                     # Some values of sent_nums are string and could not be 
-                    # transfer to integer, we will store the original value.
-                print("Obammmmmaaa")
+                    # typecasted to integer, we will store the original value.
+                print("Error")
                 evidences.append(temp)
                 continue
 
