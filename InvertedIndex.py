@@ -1,8 +1,32 @@
 class InvertedIndex:
-    '''
-    A class that takes a dictionary of vocabulary and a list of document-term frequency
-    to create an inverted-index for information retreival
-    '''
+    """
+    A class representating an inverted-index.
+    ..........................................
+
+    Attributes
+    ----------
+    vocab : dict
+         a dictionary of word:id as key-value pair
+    doc_term_freqs : list
+        a list of doc term frequencies
+
+
+    Methods
+    -------
+    num_terms():
+        returns the vocabulary size of the corpus
+    num_docs():
+        returns the number of documents in the corpus
+    docids(term):
+        returns the document ids that contain *term* in the corpus
+    freqs(term):
+        returns a list of frequencies of *term* in all documents in the corpus
+    f_t(term):
+        returns the frequency of *term* in all documents in the corpus
+    space_in_bytes():
+        returns the size of inverted-index created
+    """
+   
     def __init__(self, vocab, doc_term_freqs):
         self.vocab = vocab
         self.doc_len = [0] * len(doc_term_freqs)
