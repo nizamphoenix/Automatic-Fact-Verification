@@ -4,6 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 #embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder/2")
 # Create graph and finalize (finalizing optional but recommended).
+# used to expedite the entailment procedure
 g = tf.Graph()
 with g.as_default():
     text_input = tf.placeholder(dtype=tf.string, shape=[None])
@@ -29,7 +30,7 @@ def get_label(scores):
         return "NOT ENOUGH INFO"
         
         
- pronouns_one = [' he ', 'He ', 'She ', ' she ', 'It ', ' it ']
+pronouns_one = [' he ', 'He ', 'She ', ' she ', 'It ', ' it ']
 pronouns_two = [' his ', 'His ', ' her ', 'Her ', ' its ', 'Its ']
 
 def sort(tup): 
@@ -87,10 +88,7 @@ def label_and_evidenve(query, k):
     return output
     
     
-import json
-with open('test-unlabelled.json') as f:
-    test = json.load(f)
-    
+
     
     
 def aggregate_preds(predictions, top_one_sent=False):
