@@ -46,6 +46,10 @@ sample= invindex.num_docs()
 train_data = get_training_data_for_sample(sample)
 evidences = get_evidence(train_data)
 model, history = fit_model(train_data,evidences)
-scores=get_label_scores(model)
+import json
+with open('test-unlabelled.json') as f:
+    test = json.load(f)
+    
+scores=get_label_scores(model,test)
 with open('testOutput.json', 'w') as fp:
     json.dump(get_label(scores), fp)
