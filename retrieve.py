@@ -162,16 +162,6 @@ def find_ents_sentences(query):
 
 
 
-# Combine the result of the two methods
-def find_possible_sentences(query, k):    
-    results_bm25 = bm_25(query, invindex, k)
-    results_ents = find_ents_sentences(query)
-    sents = set()
-    for res in results_bm25:
-        sents.add((res, identifier[res]))
-    for res in results_ents:
-        sents.add((res, identifier[res]))
-    return sents
 
 # Combine the result of the two methods
 def find_possible_sentences(query, k):    
