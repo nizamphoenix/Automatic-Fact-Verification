@@ -5,12 +5,12 @@ def extract_term_freqs(preprocessed_sent):
     return tfs
 
 #compute BM25
-N = invindex.num_docs()
-Lavg = sum(invindex.doc_len)/N
+
 
 # query: a claim index: the inverted index   k: the maximun number of sentences returned
 def bm_25(query, index, k):      
-    
+    N = index.num_docs()
+    Lavg = sum(index.doc_len)/N
     scores_bm25 = Counter()
     #scores_tfidf = Counter()
     query_terms = preprocessed_sentence(query)
