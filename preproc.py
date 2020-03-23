@@ -101,10 +101,7 @@ def bm_25(query, index, k):
             
             temp = [*map(fill_scores_two, list(range(len(docids))), docids)]
             temp = []
-             
-                #temp = 0 #an auxiliary variable to aid in computing the score.
-                #temp = temp + log(1 + fdt) * log(N/float(f_term))
-                #scores_tfidf[docid] += 1.0/sqrt(index.doc_len[docid]) * temp
+           
         except KeyError:
             pass
         except IndexError:
