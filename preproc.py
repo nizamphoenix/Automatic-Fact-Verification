@@ -110,10 +110,4 @@ def bm_25(query, index, k):
     
     dummy = [*map(fill_scores_one, query_terms)]
     dummy = []
-    
-    #final_docids = set()
-    #for x in scores_bm25.most_common(k):
-        #final_docids.add(x[0])
-    #for x in scores_tfidf.most_common(k):
-        #final_docids.add(x[0])
     return [x[0] for x in scores_bm25.most_common(k)]
