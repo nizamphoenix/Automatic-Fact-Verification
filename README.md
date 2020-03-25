@@ -1,6 +1,6 @@
 # Automatic-Fact-Verification
 
-ML system that solves the challenge of fake news, which is unfortunately a byproduct of technological evolution. It verifies claims in the **FEVER data set**(citations below): a claim is annotated with either SUPPORTS, REFUTES or NOT ENOUGH INFO based upon any evidence found in the corpus.  
+An ML system that solves the challenge of fake news, which is unfortunately a byproduct of technological evolution. It verifies claims in the **FEVER data set**(citations below): a claim is annotated with either SUPPORTS, REFUTES or NOT ENOUGH INFO based upon any evidence found in the corpus.  
 
 The System is evaluated on 2 metrics,  
 1.Proportion of claims that have been labelled correctly(accuracy), and  
