@@ -8,7 +8,7 @@ class InvertedIndex:
     vocab : dict
          a dictionary of word:id as key-value pair
     doc_term_freqs : list
-        a list of doc term frequencies
+        a list of doc term frequenci
 
 
     Methods
