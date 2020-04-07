@@ -1,5 +1,5 @@
 # Automatic-Fact-Verification
-A Machine learning system that solves the challenge of fake news detection by verifying a claim against a corpus.  
+A Machine learning system that solves the challenge of fake news detection by utilizing Natural Language Processing techniques: Information Retrieval, Machine Reading Comprehension, and textual entailment.
 
 The famous **FEVER** data set(citations below) is used to build the verification system.  
 A claim posited is either supported, refuted, or annulled depending upon evidence found in the corpus; it is annulled if no evidence is found either supporting or refuting the claim being made.  
