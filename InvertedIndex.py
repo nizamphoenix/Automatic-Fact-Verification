@@ -39,7 +39,7 @@ class InvertedIndex:
             doc_len = sum(term_freqs.values())
             self.max_doc_len = max(doc_len, self.max_doc_len)
             self.doc_len[docid] = doc_len
-            self.total_num_docs += 1
+            self.total_num_docs = self.total_num_docs + 1
             for term, freq in term_freqs.items():
                 try:
                     term_id = vocab[term]
