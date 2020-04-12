@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Create graph and finalize (finalizing optional but recommended).
 # used to expedite the entailment procedure
 g = tf.Graph()
-with g.as_default():
+with g.as_default():#The Graph is created oly once
     text_input = tf.placeholder(dtype=tf.string, shape=[None])
     sent_embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder/2")
     embedded_text = sent_embed(text_input)
