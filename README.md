@@ -1,7 +1,7 @@
 # Automatic-Fact-Verification
 A Machine learning system that solves the challenge of fake news detection by utilizing Natural Language Processing techniques: Information Retrieval, Machine Reading Comprehension, and textual entailment.
 
-The Information retrieval system processes the corpus and builds an index for lookup; Machine comprehension system imbibes understanding language with the help of embeddings and provides logically coherent sentences; finally, textual entailment checks if the claim can be inferred from the evidence.  
+The Information retrieval system processes the corpus and builds an index for lookup; Machine comprehension system imbibes understanding language with the help of embeddings(ELMo) and provides logically coherent sentences; finally, textual entailment checks if the claim can be inferred from the evidence.  
 
 The famous **FEVER** data set(citations below) is used as corpus to build the verification system.  
 A claim posited is either supported, refuted, or annulled depending upon evidence found in the corpus, it is annulled if no evidence is found either supporting or refuting the claim being made.  
