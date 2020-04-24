@@ -27,7 +27,7 @@ def get_embed(str1, str2, truncation_strategy, length):
         input_segments = input_segments + ([0] * padding_length)
         return [input_ids, input_masks, input_segments]
 
-def _convert_to_transformer_inputs(claim, evidence_list, tokenizer, max_sequence_length):
+def get_transformer_inputs(claim, evidence_list, tokenizer, max_sequence_length):
     input_ids_claim, input_masks_claim, input_segments_claim = get_embed(
         claim, None, 'longest_first', max_sequence_length)
 
@@ -43,10 +43,10 @@ def compute_input_arrays(df, columns, tokenizer, max_sequence_length):
     input_ids_evid, input_masks_evid, input_segments_evid = [], [], []
         
     for _, row in tqdm(df[columns].iterrows(),total=len(df)):
-        claim, evidence = row.claim, row.evidence
+        claim, evidence_list = row.claim, row.evidence
 
-        ids_q, masks_q, segments_q, ids_a, masks_a, segments_a = \
-        _convert_to_transformer_inputs(t, q, a, tokenizer, max_sequence_length)
+        ids_claim, masks_claim, segments_claim, ids_evid, masks_evid, segments_evid = \
+        get_transformer_inputs(claim,evidence_list tokenizer, max_sequence_length)
         
         input_ids_q.append(ids_q)
         input_masks_q.append(masks_q)
