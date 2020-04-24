@@ -38,7 +38,7 @@ def get_transformer_inputs(claim, evidence_list, tokenizer, max_sequence_length)
     return [input_ids_claim, input_masks_claim, input_segments_claim,
             input_ids_evid, input_masks_evid, input_segments_evid]
 
-def compute_input_arrays(df, columns, tokenizer, max_sequence_length):
+def get_input_arrays(df, columns, tokenizer, max_sequence_length):
     input_ids_claim, input_masks_claim, input_segments_claim = [], [], []
     input_ids_evid, input_masks_evid, input_segments_evid = [], [], []
         
@@ -48,20 +48,20 @@ def compute_input_arrays(df, columns, tokenizer, max_sequence_length):
         ids_claim, masks_claim, segments_claim, ids_evid, masks_evid, segments_evid = \
         get_transformer_inputs(claim,evidence_list tokenizer, max_sequence_length)
         
-        input_ids_q.append(ids_q)
-        input_masks_q.append(masks_q)
-        input_segments_q.append(segments_q)
+        input_ids_claim.append(ids_claim)
+        input_masks_claim.append(masks_claim)
+        input_segments_claim.append(segments_claim)
 
-        input_ids_a.append(ids_a)
-        input_masks_a.append(masks_a)
-        input_segments_a.append(segments_a)
+        input_ids_evid.append(ids_evid)
+        input_masks_evid.append(masks_evid)
+        input_segments_evid.append(segments_evid)
         
-    return [np.asarray(input_ids_q, dtype=np.int32), 
-            np.asarray(input_masks_q, dtype=np.int32), 
-            np.asarray(input_segments_q, dtype=np.int32),
-            np.asarray(input_ids_a, dtype=np.int32), 
-            np.asarray(input_masks_a, dtype=np.int32), 
-            np.asarray(input_segments_a, dtype=np.int32)]
+    return [np.asarray(input_ids_claim, dtype=np.int32), 
+            np.asarray(input_masks_claim, dtype=np.int32), 
+            np.asarray(input_segments_claim, dtype=np.int32),
+            np.asarray(input_ids_evid, dtype=np.int32), 
+            np.asarray(input_masks_evid, dtype=np.int32), 
+            np.asarray(input_segments_evid, dtype=np.int32)]
 
-def compute_output_arrays(df, columns):
+def get_output_arrays(df, columns):
     return np.asarray(df[columns])
