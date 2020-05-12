@@ -13,7 +13,7 @@ The System is evaluated on 2 metrics,
 Our system achieves a score of 45.14% and performs better than the baseline system for FEVER challenge which achieved a score of 33% in labeling the verdict; we address major drawbacks of the baseline system, using entity matching along with an inverted index for information retrieval, pairwise entailment of a claim and each of the sentences retrieved by the information retrieval system, and employing universal sentence encoder for encoding the claim and relevant evidence to identify at most top-scoring 5 statements(evidence).  
 
 Currenty, built with simple inverted index, Google Universal sentence encoder & ELMo embedding.  
-Future work: use BERT embedding.
+Future work: use better sentence encoders & BERT embeddings, also sophisticated tools for building inverted index.
 ### Citation
 ```
 @inproceedings{Thorne18Fever,  
