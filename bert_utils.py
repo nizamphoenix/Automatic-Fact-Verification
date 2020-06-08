@@ -10,13 +10,12 @@ from transformers import *
 
 def get_embed(str1, str2, truncation_strategy, length):
         '''
-        reuturns embeddings of str1+str2
+        reuturns encodings of str1+str2
         '''
         inputs = tokenizer.encode_plus(str1, str2,
             add_special_tokens=True,
             max_length=length,
             truncation_strategy=truncation_strategy)
-        
         input_ids =  inputs["input_ids"]
         input_masks = [1] * len(input_ids)
         input_segments = inputs["token_type_ids"]
