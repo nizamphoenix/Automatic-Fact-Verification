@@ -16,8 +16,8 @@ Our system achieves a score of 45.14% and performs better than the baseline syst
 ##### Tasks
 - [x] inverted index,Google universal sentence encoder, ELMo embedding  
 - [x] Textual entailment, allennlp  
-- [ ] inverted index libraries like pylucene.  
-- [ ] BERT Embedding  
+- [ ] inverted index improvement,using libraries like pylucene, xapian.  
+- [ ] [RetriBERT](https://huggingface.co/transformers/model_doc/retribert.html)
 
 
 #### Citation
